@@ -2,13 +2,27 @@ package Player
 
 class Character(attack: Int, defense: Int, mAttack: Int, mDefense: Int, health: Int, mana: Int) {
   var currentHP = health
-  def currentStats(currentHealth: Int): Int={
+  def currentHealth(currentHealth: Int): Unit={
     currentHP += currentHealth
-    currentHP
   }
   def takeDamage(damage: Int): Int={
-    currentStats(-damage)
-    damage
+    currentHealth(-damage)
+    currentHP
+  }
+  def getAttack(): Int ={
+    attack
+  }
+  def getDefense(): Int={
+    defense
+  }
+  def getMAttack(): Int{
+    mAttack
+  }
+  def getMDefense(): Int{
+    mDefense
+  }
+  def getMana(): Int{
+    mana
   }
   def isAlive(): Boolean={
     if(currentHP == 0){
@@ -16,6 +30,16 @@ class Character(attack: Int, defense: Int, mAttack: Int, mDefense: Int, health: 
     }
     else{
       true
+    }
+  }
+  def isAttackingAD(attacker: Character, defender: Character): Unit ={
+    defender.takeDamage(attacker.getAttack()-defender.getDefense())
+  }
+  def isAttackingMD(attacker: Character, defender: Character): Unit={
+
+    if(attacker.getMana() ==0) {}
+    else{
+      defender.takeDamage(attacker.getMAttack()-defender.getMDefense())
     }
   }
 }
