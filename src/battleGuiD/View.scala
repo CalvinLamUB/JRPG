@@ -92,7 +92,7 @@ object View extends JFXApp {
       content = List(party1P1, party1P2, party1P3, party1P4, party2P1, party2P2, party2P3, party2P4, button1, button2, button3, button4)
     }
   }
-  var p1: JsValue = Json.toJson({"characters":[{"name":"party1P1", "hp":50, "maxHP":70, "battleOptions": ["","","",""]}]})
+  //var p1: JsValue = Json.toJson({"characters":[{"name":"party1P1", "hp":50, "maxHP":70, "battleOptions": ["","","",""]}]})
 
   //Json.stringify(Json.toJson(jsonGameState))
   def animate(p1: String, p2: String, num: Int): Unit = {
